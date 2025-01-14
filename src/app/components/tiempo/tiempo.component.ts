@@ -25,7 +25,7 @@ export class TiempoComponent {
   iniciarFormulario(){
     this.formulario = this.formBuilder.group({
       ciudad: ['', [Validators.required , this._util.noBarcelona ,Validators.pattern('^[a-zA-Z ]*$')]],
-      codigoCiudad: ['', [Validators.required , Validators.pattern('^[0-9]*$')]]
+      codigoCiudad: ['', [Validators.required , Validators.pattern('^[a-zA-Z ]*$')]]
     });
   }
 
@@ -34,5 +34,6 @@ export class TiempoComponent {
     // Aquí se debería hacer la llamada a la API de tiempo
     // y mostrar los resultados en pantalla.
     // Este ejemplo solo imprime los valores del formulario en consola.
+    //apikey tiempo 22864e681762d698fe6797eefc075aa8
   }
 }

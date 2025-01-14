@@ -10,7 +10,7 @@
             </div>
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Codigo Ciudad</label>
-              <input type="number" class="form-control" id="exampleInputPassword1" formControlName="codigoCiudad">
+              <input type="text" class="form-control" id="exampleInputPassword1" formControlName="codigoCiudad">
               <p class="text-danger" *ngIf="formulario.get('codigoCiudad')?.invalid && formulario.get('codigoCiudad')?.touched">Por favor, escriba solo numeros</p>
             </div>
             <button type="submit" class="btn btn-primary">Consultar</button>
