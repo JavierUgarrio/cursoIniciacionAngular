@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UtilService } from 'src/app/services/validation/util.service';
 
 @Component({
   selector: 'app-tiempo',
@@ -10,7 +11,7 @@ export class TiempoComponent {
 
   formulario !: FormGroup;
 
-  constructor(private formBuilder : FormBuilder) { 
+  constructor(private formBuilder : FormBuilder, private _util: UtilService) { 
     this.iniciarFormulario();
   }
 
@@ -23,7 +24,7 @@ export class TiempoComponent {
   */
   iniciarFormulario(){
     this.formulario = this.formBuilder.group({
-      ciudad: ['', [Validators.required , Validators.pattern('^[a-zA-Z ]*$')]],
+      ciudad: ['', [Validators.required , this._util.noBarcelona ,Validators.pattern('^[a-zA-Z ]*$')]],
       codigoCiudad: ['', [Validators.required , Validators.pattern('^[0-9]*$')]]
     });
   }
