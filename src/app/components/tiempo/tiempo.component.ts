@@ -11,6 +11,17 @@ import { UtilService } from 'src/app/services/validation/util.service';
 export class TiempoComponent {
 
   formulario !: FormGroup;
+  tiempo:any;
+  nombre: any;
+  temperatura:any;
+  humedad:any;
+  latitud: any;
+  longitud: any;
+  descripcion: any;
+
+  /*
+   el constructor recibe un formBuilder para crear el formulario y un utilService para utilizar validaciones
+   */
 
   constructor(private formBuilder : FormBuilder, private _util: UtilService, private _tiempo: TemperaturaService) { 
     this.iniciarFormulario();
@@ -39,6 +50,13 @@ export class TiempoComponent {
 
     this._tiempo.getEstadoTiempo(this.formulario.get('ciudad')?.value, this.formulario.get('codigoCiudad')?.value)
       .subscribe((respuesta:any) => {
+        this.tiempo = respuesta;
+        this.nombre = this.tiempo.name;
+        this.temperatura = this.tiempo.main.temp ;
+        this.humedad = this.tiempo.main.humidity;
+        this.latitud = this.tiempo.coord.lat;
+        this.longitud = this.tiempo.coord.lon;
+        this.descripcion = this.tiempo.weather[0].description;
       console.log("respuesta: ",respuesta);})
   }
 }
