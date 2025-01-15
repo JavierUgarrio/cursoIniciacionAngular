@@ -1,0 +1,34 @@
+<div class="container">
+    <br>
+    <h4>Consulta Tiempo Ciudad</h4>
+    <div class="col-lg-6 col-md-6 alinear card">
+        <form [formGroup]="formulario" (ngSubmit)="consultar()">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Ciudad</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="ciudad">
+              <p class="text-danger" *ngIf="formulario.get('ciudad')?.invalid && formulario.get('ciudad')?.touched">Por favor, escriba solo letras</p>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Codigo Ciudad</label>
+              <input type="text" class="form-control" id="exampleInputPassword1" formControlName="codigoCiudad">
+              <p class="text-danger" *ngIf="formulario.get('codigoCiudad')?.invalid && formulario.get('codigoCiudad')?.touched">Por favor, escriba solo numeros</p>
+            </div>
+            <button type="submit" class="btn btn-primary">Consultar</button>
+            <p class="text-danger" *ngIf="mostrarError">{{mensajeError}}</p>
+          </form>
+    </div>
+    <div  class="col-lg-6 col-md-6 alinear">
+        <div class="card">
+            <div class="card-body">
+              <ul>
+                <li>Descripcion: {{descripcion}}</li>
+                <li>Temperatura: {{temperatura}}</li>
+                <li>Humedad: {{humedad}}</li>
+                <li>Ciudad: {{nombre | uppercase}}</li><!-- PIPE -->
+                <li>Longitud: {{longitud}}</li>
+                <li>Latitud: {{latitud}}</li>
+              </ul>
+            </div>
+        </div>
+    </div>
+</div>
