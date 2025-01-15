@@ -14,6 +14,7 @@
               <p class="text-danger" *ngIf="formulario.get('codigoCiudad')?.invalid && formulario.get('codigoCiudad')?.touched">Por favor, escriba solo numeros</p>
             </div>
             <button type="submit" class="btn btn-primary">Consultar</button>
+            <p class="text-danger" *ngIf="mostrarError">{{mensajeError}}</p>
           </form>
     </div>
     <div  class="col-lg-6 col-md-6 alinear">
@@ -23,7 +24,7 @@
                 <li>Descripcion: {{descripcion}}</li>
                 <li>Temperatura: {{temperatura}}</li>
                 <li>Humedad: {{humedad}}</li>
-                <li>Ciudad: {{nombre}}</li>
+                <li>Ciudad: {{nombre | uppercase}}</li><!-- PIPE -->
                 <li>Longitud: {{longitud}}</li>
                 <li>Latitud: {{latitud}}</li>
               </ul>

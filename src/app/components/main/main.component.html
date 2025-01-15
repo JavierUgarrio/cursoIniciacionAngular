@@ -1,1 +1,13 @@
-<p>main works!</p>
+<p>Directivas</p>
+<div *ngIf="mostrarCiudad" class="container">
+    <p>Ciudades</p>
+        
+    <ul *ngFor="let ciudad of ciudades">
+        <li>{{ciudad}}</li>
+    </ul>
+
+</div>
+<div class="container">
+    <button class="btn btn-primary" (click)="mostrar()" *ngIf="mostrarCiudad">Esconder ciudades</button>
+    <button class="btn btn-primary" (click)="mostrar()" *ngIf="!mostrarCiudad">Mostrar ciudades</button>
+</div>

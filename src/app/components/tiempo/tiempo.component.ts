@@ -18,6 +18,8 @@ export class TiempoComponent {
   latitud: any;
   longitud: any;
   descripcion: any;
+  mostrarError: boolean = false;
+  mensajeError: string = "";
 
   /*
    el constructor recibe un formBuilder para crear el formulario y un utilService para utilizar validaciones
@@ -50,6 +52,7 @@ export class TiempoComponent {
 
     this._tiempo.getEstadoTiempo(this.formulario.get('ciudad')?.value, this.formulario.get('codigoCiudad')?.value)
       .subscribe((respuesta:any) => {
+        this.mostrarError = false;
         this.tiempo = respuesta;
         this.nombre = this.tiempo.name;
         this.temperatura = this.tiempo.main.temp ;
@@ -57,6 +60,11 @@ export class TiempoComponent {
         this.latitud = this.tiempo.coord.lat;
         this.longitud = this.tiempo.coord.lon;
         this.descripcion = this.tiempo.weather[0].description;
-      console.log("respuesta: ",respuesta);})
+      console.log("respuesta: ",respuesta);
+    },
+    (error:any)=>{
+      this.mostrarError = true;
+      this.mensajeError = "Error al consultar el estado del tiempo"
+    })
   }
 }

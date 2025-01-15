@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class MainComponent {
 
+  ciudades:string[] = ["Madrid","Roma","Londres","Lisboa"];
+  mostrarCiudad:boolean = false;
+
+  mostrar(){
+    this.mostrarCiudad = !this.mostrarCiudad;
+  }
+
 }
