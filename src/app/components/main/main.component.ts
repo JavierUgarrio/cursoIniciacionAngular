@@ -9,9 +9,13 @@ export class MainComponent {
 
   ciudades:string[] = ["Madrid","Roma","Londres","Lisboa"];
   mostrarCiudad:boolean = false;
+  cambioCSS:boolean= true;
 
   mostrar(){
     this.mostrarCiudad = !this.mostrarCiudad;
   }
 
+  mostrarCSS(){
+    this.cambioCSS = !this.cambioCSS;
+  }
 }

@@ -1,13 +1,23 @@
 <p>Directivas</p>
 <div *ngIf="mostrarCiudad" class="container">
-    <p>Ciudades</p>
-        
+    <p>Ciudades</p>     
     <ul *ngFor="let ciudad of ciudades">
         <li>{{ciudad}}</li>
     </ul>
-
 </div>
+<br>
 <div class="container">
     <button class="btn btn-primary" (click)="mostrar()" *ngIf="mostrarCiudad">Esconder ciudades</button>
     <button class="btn btn-primary" (click)="mostrar()" *ngIf="!mostrarCiudad">Mostrar ciudades</button>
+</div>
+<br>
+<div class="container">
+    <h4>ngclass</h4>
+    <br>
+    <div [ngClass]="{'alert-primary': cambioCSS, 'alert-warning': !cambioCSS}" class="alert" role="alert">
+        Estilos de alertas
+    </div>
+    <div>
+        <button class="btn btn-primary" (click)="mostrarCSS()"> Cambio estilo css</button>
+    </div>
 </div>
